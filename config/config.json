@@ -1,0 +1,24 @@
+{
+  
+  "development": {
+    "username": "postgres",
+    "password": "adminka",
+    "database": "e-commerce",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "postgres",
+    "password": "adminka",
+    "database": "e-commerce",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "postgres",
+    "password": "adminka",
+    "database": "e-commerce",
+    "host": "localhost",
+    "dialect": "postgres"
+  }
+}
