@@ -27,6 +27,7 @@ exports.routes=(router) =>{
    
 
     router.get('/products', productController.allProduct);
+    router.get('/popular', productController.allPopularProduct);
     router.get('/product/:id', productController.getProduct);
     // router.post('/product',admin_authenticate, productController.createProduct);
     // router.put('/product/:id', admin_authenticate, productController.updateProduct);

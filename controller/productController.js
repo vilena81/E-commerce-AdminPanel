@@ -1,11 +1,18 @@
 const { Product, Category } = require('../models');
-// const fs = require('fs');
-// const path = require('path');
+
 
 
 exports.allProduct = async (req, res) => {
     try {
         const product = await Product.findAll({ include: Category });
+        res.status(201).json(product);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+}
+exports.allPopularProduct = async (req, res) => {
+    try {
+        const product = await Product.findAll();
         res.status(201).json(product);
     } catch (err) {
         res.status(500).json({ message: err.message });
@@ -62,24 +69,4 @@ exports.deleteProduct = async (req, res) => {
 };
 
 
-
-
-
-// exports.deleteProduct = async (req, res) => {
-//     const { id } = req.params;
-//     try {
-//         const images = await Image.findAll({ where: { ProductId: id } })
-//         for (const image of images) {
-//             const filePath = path.join(__dirname, '..', 'static', 'images', image.filePath);
-//             fs.unlinkSync(filePath);
-//         }
-
-//         await Image.destroy({ where: { ProductId: id } })
-//         await Product.destroy({ where: { id } })
-//         // const product = await Product.destroy({ where: { id } });
-//         res.status(201).json({ message: 'Product and associated images deleted successfully' });
-//     } catch (err) {
-//         res.status(500).json({ message: err.message });
-//     }
-// }
 
