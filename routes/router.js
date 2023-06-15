@@ -1,7 +1,8 @@
 const express =require ('express').Router()
 const userController = require('../controller/userController');
-const categoryController = require('../controller/categoryController')
-const productController = require('../controller/productController')
+const categoryController = require('../controller/categoryController');
+const productController = require('../controller/productController');
+const popularController = require('../controller/popularController')
 const { admin_authenticate, authenticateToken} = require('../JWT/JWT_Authenticate')
 
 exports.routes=(router) =>{
@@ -9,7 +10,7 @@ exports.routes=(router) =>{
     router.post('/register', userController.user_register);
     router.post('/login', userController.user_login);
     router.get('/verified', userController.verified);
-    
+
     router.get('/users', userController.getAllUsers);
     router.get('/user/:id', userController.getUsersById);
     router.put('/user/:id', userController.updateUser);
@@ -24,10 +25,8 @@ exports.routes=(router) =>{
     router.post('/categories', categoryController.createCategory);
     router.put('/category/:id',categoryController.updateCategory);
     router.delete('/category/:id', categoryController.deleteCategory);
-   
 
     router.get('/products', productController.allProduct);
-    router.get('/popular', productController.allPopularProduct);
     router.get('/product/:id', productController.getProduct);
     // router.post('/product',admin_authenticate, productController.createProduct);
     // router.put('/product/:id', admin_authenticate, productController.updateProduct);
@@ -36,5 +35,9 @@ exports.routes=(router) =>{
     router.put('/product/:id', productController.updateProduct);
     router.delete('/product/:id', productController.deleteProduct);
     
+    router.get('/popular', popularController.allPopularProduct);
+    router.post('/popular', popularController.createPopularProduct);
+    router.put('/popular/:id', popularController.updatePopularProduct);
+    router.delete('/popular/:id', popularController.deletePopularProduct);
    
 }

@@ -1,4 +1,4 @@
-const { Product, Category } = require('../models');
+const { Product, Category,  } = require('../models');
 
 
 
@@ -10,14 +10,7 @@ exports.allProduct = async (req, res) => {
         res.status(500).json({ message: err.message });
     }
 }
-exports.allPopularProduct = async (req, res) => {
-    try {
-        const product = await Product.findAll();
-        res.status(201).json(product);
-    } catch (err) {
-        res.status(500).json({ message: err.message });
-    }
-}
+
 exports.getProduct = async (req, res) => {
     const { id } = req.params;
     try {
