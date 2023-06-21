@@ -20,6 +20,7 @@ exports.getProduct = async (req, res) => {
         res.status(500).json({ message: err.message });
     }
 }
+
 exports.createProduct = async (req, res) => {
 const { name, img, description, price, quantity, CategoryId } = req.body;
 console.log(req.body)
@@ -28,7 +29,7 @@ console.log(req.body)
         await Product.create({ name, img, description, price, quantity, CategoryId });
         res.status(201).json({ message: "Product created!" });
     } catch (err) {
-        res.status(500).json({ message:err });
+        res.status(500).json({ message:err.message });
     }
 }
 
@@ -44,8 +45,6 @@ exports.updateProduct = async (req, res) => {
         res.status(500).json({ message: "Something went wrong" });
     }
 }
-
-
 
 exports.deleteProduct = async (req, res) => {
     const { id } = req.params;

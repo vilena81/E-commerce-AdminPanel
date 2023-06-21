@@ -10,17 +10,14 @@ app.use(express.json());
 app.use(cors());
 
 
-
 routes(app)
 
 
-
 app.get('/', (req, res) => {
-  const data = { message: 'Добро пожаловать на страницу регистрации!' };
+  const data = { message: 'Welcome to the registration page!' };
   res.json(data);
 });
 
- 
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}!`);

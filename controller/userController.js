@@ -94,11 +94,11 @@ const getAllUsers = async (req, res) => {
 
 const getUsersById = async (req, res) => {
     try {
-        const id = req.params;
-        const data = await User.findOne({ where: id, })
-        res.status(201).json(data)
+        const { id } = req.params;
+        const data = await User.findOne({ where: { id } });
+        res.status(200).json(data);
     } catch (err) {
-        res.status(500).json({ message: "Something went wrong" })
+        res.status(500).json({ message: "Something went wrong" });
     }
 }
 

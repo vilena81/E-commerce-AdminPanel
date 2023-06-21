@@ -4,6 +4,9 @@ const categoryController = require('../controller/categoryController');
 const productController = require('../controller/productController');
 const popularController = require('../controller/popularController')
 const { admin_authenticate, authenticateToken} = require('../JWT/JWT_Authenticate')
+const email = require('../mailer/email')
+
+
 
 exports.routes=(router) =>{
     
@@ -39,5 +42,7 @@ exports.routes=(router) =>{
     router.post('/popular', popularController.createPopularProduct);
     router.put('/popular/:id', popularController.updatePopularProduct);
     router.delete('/popular/:id', popularController.deletePopularProduct);
+   
+    router.post('/send-email', email.createMail)
    
 }

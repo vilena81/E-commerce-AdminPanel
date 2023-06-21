@@ -30,4 +30,3 @@ exports.send_mail=(mail, token) => {
 }
 
 
-
