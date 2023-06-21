@@ -3,7 +3,7 @@ const PASSWORD = process.env.PASSWORD
 const nodemailer = require("nodemailer")
 
 
-function send_mail(data, message){
+function send_mail(data, message, mail ){
     const transporter = nodemailer.createTransport({
         service: "Gmail",
         auth: {
@@ -15,12 +15,12 @@ function send_mail(data, message){
     })
 
     const mailOptions = {
-        from: USER,
-        to: 'shadyanvilena@gmail.com',
+        from: mail,
+        to: USER,
         subject: "Sending Email using Node.js",
         text: message,
         html: `
-           <h3>First name: ${data.firstName}</h3>
+           <h3>First Name: ${data.firstName}</h3>
            <h3>Last Name: ${data.lastName}</h3>
            <h3>Email: ${data.email}</h3>
            <p>Message: ${data.message}</p>
