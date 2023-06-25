@@ -25,7 +25,7 @@ exports.routes=(router) =>{
     // router.post('/category',admin_authenticate, categoryController.createCategory);
     // router.put('/category/:id',admin_authenticate, categoryController.updateCategory);
     // router.delete('/category/:id',admin_authenticate, categoryController.deleteCategory);
-    router.post('/categories', categoryController.createCategory);
+    router.post('/category', categoryController.createCategory);
     router.put('/category/:id',categoryController.updateCategory);
     router.delete('/category/:id', categoryController.deleteCategory);
 
@@ -34,7 +34,7 @@ exports.routes=(router) =>{
     // router.post('/product',admin_authenticate, productController.createProduct);
     // router.put('/product/:id', admin_authenticate, productController.updateProduct);
     // router.delete('/product/:id', admin_authenticate, productController.deleteProduct);
-    router.post('/products', productController.createProduct);
+    router.post('/product', productController.createProduct);
     router.put('/product/:id', productController.updateProduct);
     router.delete('/product/:id', productController.deleteProduct);
     

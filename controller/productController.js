@@ -25,7 +25,6 @@ exports.createProduct = async (req, res) => {
 const { name, img, description, price, quantity, CategoryId } = req.body;
 console.log(req.body)
     try {
-        
         await Product.create({ name, img, description, price, quantity, CategoryId });
         res.status(201).json({ message: "Product created!" });
     } catch (err) {
